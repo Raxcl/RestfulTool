@@ -15,6 +15,7 @@ import com.github.restful.tool.utils.data.Bundle;
 import com.github.restful.tool.view.window.WindowFactory;
 import com.github.restful.tool.view.window.frame.Window;
 import com.intellij.icons.AllIcons;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.actionSystem.ToggleAction;
@@ -38,6 +39,10 @@ public class WithLibraryAction extends ToggleAction implements DumbAware {
 
     @Override
     public boolean isSelected(@NotNull AnActionEvent e) {
+        Project data = e.getData(CommonDataKeys.PROJECT);
+        if (null == data) {
+            return false;
+        }
         return Storage.scanServiceWithLibrary(e.getRequiredData(CommonDataKeys.PROJECT));
     }
 
@@ -59,4 +64,10 @@ public class WithLibraryAction extends ToggleAction implements DumbAware {
         }
         return (toolWindow = WindowFactory.getToolWindow(project));
     }
+
+    @Override
+    public @NotNull ActionUpdateThread getActionUpdateThread() {
+        return ActionUpdateThread.EDT;
+    }
+
 }

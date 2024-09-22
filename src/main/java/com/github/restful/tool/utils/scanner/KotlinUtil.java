@@ -254,18 +254,16 @@ public class KotlinUtil {
     @NotNull
     private Set<KtAnnotationEntry> findKtAnnotationEntryByName(@NotNull String name, boolean withLib) {
         String temp = name.contains(".") ? name.substring(name.lastIndexOf(".") + 1) : name;
-        Set<KtAnnotationEntry> collection = new HashSet<>(KotlinAnnotationsIndex.getInstance().get(
-                temp,
+        Set<KtAnnotationEntry> collection =  new HashSet(KotlinAnnotationsIndex.Helper.get(temp,
                 project,
-                module.getModuleScope()
-        ));
+                module.getModuleScope()));
         if (withLib) {
-            collection.addAll(KotlinAnnotationsIndex.getInstance().get(
+            collection.addAll(KotlinAnnotationsIndex.Helper.get(
                     name,
                     project,
                     module.getModuleWithLibrariesScope())
             );
-            collection.addAll(KotlinAnnotationsIndex.getInstance().get(
+            collection.addAll(KotlinAnnotationsIndex.Helper.get(
                     temp,
                     project,
                     module.getModuleWithLibrariesScope())
