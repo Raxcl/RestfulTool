@@ -135,16 +135,29 @@ public class Spring implements IJavaFramework {
         List<PsiClass> allControllerClass = new ArrayList<>();
 
         GlobalSearchScope moduleScope = SystemUtil.getModuleScope(module);
-        Collection<PsiAnnotation> pathList = JavaAnnotationIndex.getInstance().get(
+        
+        // 1. 先扫描@Controller和@RestController注解
+        Collection<PsiAnnotation> pathList = new ArrayList<>();
+        pathList.addAll(JavaAnnotationIndex.getInstance().get(
                 Control.Controller.getName(),
                 project,
                 moduleScope
-        );
+        ));
         pathList.addAll(JavaAnnotationIndex.getInstance().get(
                 Control.RestController.getName(),
                 project,
                 moduleScope
         ));
+        
+        // 2. 添加@RequestMapping注解的扫描
+        pathList.addAll(JavaAnnotationIndex.getInstance().get(
+                "RequestMapping",  // 简单名称
+                project,
+                moduleScope
+        ));
+        
+        Set<PsiClass> processedClasses = new HashSet<>();  // 用于去重
+        
         for (PsiAnnotation psiAnnotation : pathList) {
             PsiModifierList psiModifierList = (PsiModifierList) psiAnnotation.getParent();
             PsiElement psiElement = psiModifierList.getParent();
@@ -154,7 +167,13 @@ public class Spring implements IJavaFramework {
             }
 
             PsiClass psiClass = (PsiClass) psiElement;
+
+            // 避免重复添加
+            if (processedClasses.contains(psiClass)) {
+                continue;
+            }
             allControllerClass.add(psiClass);
+            processedClasses.add(psiClass);
         }
         return allControllerClass;
     }
