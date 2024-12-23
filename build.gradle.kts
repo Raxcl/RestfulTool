@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation("cn.hutool:hutool-all:5.8.18")
+    implementation("cn.hutool:hutool-all:5.8.21")
     implementation("org.dom4j:dom4j:2.1.4")
 }
 
@@ -24,10 +24,13 @@ java {
 
 intellij {
     updateSinceUntilBuild.set(true)
-    version.set("2023.3.7")
+//    version.set("2024.3.1")
+    version.set("2024.1.7")
     type.set("IC") // Target IDE Platform
     pluginName.set("RestfulTool")
     plugins.set(listOf("java","properties","yaml","Kotlin"))
+//    plugins.set(listOf(/* Plugin Dependencies */))
+
 
 }
 
@@ -37,6 +40,11 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "17"
         targetCompatibility = "17"
+        options.compilerArgs.addAll(listOf(
+            // todo 暂时忽略
+//            "-Xlint:deprecation",  // 显示过时API的使用
+//            "-Xlint:unchecked"     // 显示未经检查的转换警告
+        ))
     }
 
     patchPluginXml {
