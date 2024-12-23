@@ -10,7 +10,7 @@ dependencies {
 }
 
 group = "cn.cloud.auto.restful.tool"
-version = "1.5.2"
+version = "1.5.3"
 
 repositories {
     mavenLocal()
@@ -24,14 +24,11 @@ java {
 
 intellij {
     updateSinceUntilBuild.set(true)
-//    version.set("2024.3.1")
+    sameSinceUntilBuild.set(false)
     version.set("2024.1.7")
     type.set("IC") // Target IDE Platform
     pluginName.set("RestfulTool")
     plugins.set(listOf("java","properties","yaml","Kotlin"))
-//    plugins.set(listOf(/* Plugin Dependencies */))
-
-
 }
 
 
@@ -51,7 +48,7 @@ tasks {
         // 最低版本
         sinceBuild.set("233")
         // 最高版本
-        untilBuild.set("242.*")
+        untilBuild.set("245.*")
     }
 
     signPlugin {
