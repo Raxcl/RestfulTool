@@ -1,6 +1,6 @@
 <idea-plugin url="https://www.jetbrains.com/idea">
-    <id>cn.cloud.auto.restful.tool</id>
-    <name>RestfulTool</name>
+    <id>cn.wanda.restful.tool</id>
+    <name>RestfulTool-wanda</name>
     <vendor email="raxcl@qq.com" url="">raxcl</vendor>
 
     <!--suppress PluginXmlValidity -->

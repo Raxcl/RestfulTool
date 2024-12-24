@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/RestfulTool.iml" filepath="$PROJECT_DIR$/.idea/RestfulTool.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RestfulTool.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RestfulTool.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RestfulTool.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RestfulTool.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RestfulTool-wanda.iml" filepath="$PROJECT_DIR$/.idea/modules/RestfulTool-wanda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RestfulTool-wanda.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RestfulTool-wanda.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RestfulTool-wanda.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RestfulTool-wanda.test.iml" />
     </modules>
   </component>
 </project>
