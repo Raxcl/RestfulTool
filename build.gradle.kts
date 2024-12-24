@@ -5,14 +5,14 @@ plugins {
 }
 
 dependencies {
-    implementation("cn.hutool:hutool-all:5.8.18") {
+    implementation("cn.hutool:hutool-all:5.8.21") {
         exclude(group = "org.slf4j")
     }
     implementation("org.dom4j:dom4j:2.1.4") {
         exclude(group = "org.slf4j")
     }
     
-    testImplementation("cn.hutool:hutool-all:5.8.18")
+    testImplementation("cn.hutool:hutool-all:5.8.21")
     testImplementation("org.dom4j:dom4j:2.1.4")
 }
 

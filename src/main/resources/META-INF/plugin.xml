@@ -1,6 +1,6 @@
 <idea-plugin url="https://www.jetbrains.com/idea">
     <id>cn.wanda.restful.tool</id>
-    <name>RestfulTool-wanda</name>
+    <name>RestfulTool-Wanda</name>
     <vendor email="raxcl@qq.com" url="">raxcl</vendor>
 
     <!--suppress PluginXmlValidity -->
@@ -78,10 +78,12 @@
 
         <intentionAction>
             <!-- className 中不允许换行，否则会报 ClassNotFountException -->
+            <language/>
             <className>com.github.restful.tool.actions.intention.NavigationApiServiceIntentionAction</className>
             <category>Java/RestfulTool</category>
         </intentionAction>
         <intentionAction>
+            <language/>
             <className>com.github.restful.tool.actions.intention.Json2ClassIntentionAction</className>
             <category>Java/RestfulTool</category>
         </intentionAction>
